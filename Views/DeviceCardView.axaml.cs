@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace DeviceCompanionAvalonia.Views;
 
-public partial class DeviceCard : UserControl
+public partial class DeviceCardView : UserControl
 {
-    public DeviceCard()
+    public DeviceCardView()
     {
         InitializeComponent();
     }

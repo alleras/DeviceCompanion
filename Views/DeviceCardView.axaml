@@ -1,0 +1,54 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:DeviceCompanionAvalonia.ViewModels"
+             x:DataType="vm:DeviceCardViewModel"
+             mc:Ignorable="d" MinWidth="500"
+             x:Class="DeviceCompanionAvalonia.Views.DeviceCardView">
+    
+    <Design.DataContext>
+        <vm:DeviceCardViewModel/>
+    </Design.DataContext>
+    
+    <Border Margin="20, 0, 20, 10" Classes="Hover" Theme="{StaticResource CardBorder}">
+        <Grid ColumnDefinitions="*, Auto, Auto" HorizontalAlignment="Stretch">
+            <StackPanel Grid.Column="0" Orientation="Vertical" Spacing="10">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <Label 
+                        Classes="H6" 
+                        Theme="{StaticResource TitleLabel}" 
+                        Content="{Binding DeviceName}" />
+                    <Label
+                        Classes.Green="{
+                            Binding Status, 
+                            Converter={StaticResource EnumToBoolConverter},
+                            ConverterParameter={x:Static vm:DeviceStatusEnum.Connected}
+                        }"
+                        Classes.Red="{
+                            Binding Status, 
+                            Converter={StaticResource EnumToBoolConverter},
+                            ConverterParameter={x:Static vm:DeviceStatusEnum.Stopped}
+                        }"
+                        Classes.Blue="{
+                            Binding Status, 
+                            Converter={StaticResource EnumToBoolConverter},
+                            ConverterParameter={x:Static vm:DeviceStatusEnum.Connecting}
+                        }"
+                        Classes.Gray="{
+                            Binding Status,
+                            Converter={StaticResource EnumToBoolConverter},
+                            ConverterParameter={x:Static vm:DeviceStatusEnum.Unknown}
+                        }"
+                        Theme="{StaticResource TagLabel}"
+                        Content="{Binding StatusText}" />
+                </StackPanel>
+                <TextBlock>Module description goes here.</TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10">
+                <Button Content="{Binding ActionButtonText}" />
+                <Button>Configure</Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
