@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using DeviceCompanionAvalonia.Interfaces;
+using DeviceCompanion.Interfaces;
 
-namespace DeviceCompanionAvalonia.ViewModels;
+namespace DeviceCompanion.Avalonia.ViewModels;
 
 public enum DeviceStatusEnum
 {
@@ -40,9 +40,9 @@ public partial class DeviceCardViewModel : ViewModelBase
 
         Status = state switch
         {
-            { IsConnected: true, IsPolling: true } => DeviceStatusEnum.Connected,
-            { IsConnected: false, IsPolling: false } => DeviceStatusEnum.Stopped,
-            { IsConnecting: true } => DeviceStatusEnum.Connecting,
+            { IsConnecting: true, IsConnected: false, IsPolling: false } => DeviceStatusEnum.Connecting,
+            { IsConnecting: false, IsConnected: true, IsPolling: true } => DeviceStatusEnum.Connected,
+            { IsConnecting: false, IsConnected: false, IsPolling: false } => DeviceStatusEnum.Stopped,
             _ => DeviceStatusEnum.Unknown
         };
     }

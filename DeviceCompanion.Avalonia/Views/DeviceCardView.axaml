@@ -2,13 +2,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="using:DeviceCompanionAvalonia.ViewModels"
-             x:DataType="vm:DeviceCardViewModel"
+             xmlns:viewModels="clr-namespace:DeviceCompanion.Avalonia.ViewModels"
+             x:DataType="viewModels:DeviceCardViewModel"
              mc:Ignorable="d" MinWidth="500"
-             x:Class="DeviceCompanionAvalonia.Views.DeviceCardView">
+             x:Class="DeviceCompanion.Avalonia.Views.DeviceCardView">
     
     <Design.DataContext>
-        <vm:DeviceCardViewModel/>
+        <viewModels:DeviceCardViewModel/>
     </Design.DataContext>
     
     <Border Margin="20, 0, 20, 10" Classes="Hover" Theme="{StaticResource CardBorder}">
@@ -23,22 +23,22 @@
                         Classes.Green="{
                             Binding Status, 
                             Converter={StaticResource EnumToBoolConverter},
-                            ConverterParameter={x:Static vm:DeviceStatusEnum.Connected}
+                            ConverterParameter={x:Static viewModels:DeviceStatusEnum.Connected}
                         }"
                         Classes.Red="{
                             Binding Status, 
                             Converter={StaticResource EnumToBoolConverter},
-                            ConverterParameter={x:Static vm:DeviceStatusEnum.Stopped}
+                            ConverterParameter={x:Static viewModels:DeviceStatusEnum.Stopped}
                         }"
                         Classes.Blue="{
                             Binding Status, 
                             Converter={StaticResource EnumToBoolConverter},
-                            ConverterParameter={x:Static vm:DeviceStatusEnum.Connecting}
+                            ConverterParameter={x:Static viewModels:DeviceStatusEnum.Connecting}
                         }"
                         Classes.Gray="{
                             Binding Status,
                             Converter={StaticResource EnumToBoolConverter},
-                            ConverterParameter={x:Static vm:DeviceStatusEnum.Unknown}
+                            ConverterParameter={x:Static viewModels:DeviceStatusEnum.Unknown}
                         }"
                         Theme="{StaticResource TagLabel}"
                         Content="{Binding StatusText}" />

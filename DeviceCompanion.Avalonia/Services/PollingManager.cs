@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using DeviceCompanionAvalonia.Interfaces;
-using DeviceCompanionAvalonia.Interfaces.Services;
-using DeviceCompanionAvalonia.Models;
 using System.Diagnostics;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using DeviceCompanion.Interfaces;
+using DeviceCompanion.Interfaces.Models;
+using DeviceCompanion.Interfaces.Services;
+using DeviceCompanionAvalonia.Interfaces;
 
-namespace DeviceCompanionAvalonia.Services
+namespace DeviceCompanion.Avalonia.Services
 {
     public class PollingManager : IPollingManager
     {
@@ -21,7 +22,7 @@ namespace DeviceCompanionAvalonia.Services
         public PollingManager(IModulesService modulesService)
         {
             _modulesService = modulesService;
-            _ = Initialize();
+            Initialize().Wait();
         }
         public async Task Initialize()
         {

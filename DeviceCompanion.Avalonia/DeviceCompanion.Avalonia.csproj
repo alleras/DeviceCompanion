@@ -31,4 +31,8 @@
     <ItemGroup>
       <Folder Include="Converters\" />
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DeviceCompanion.Interfaces\DeviceCompanion.Interfaces.csproj" />
+    </ItemGroup>
 </Project>

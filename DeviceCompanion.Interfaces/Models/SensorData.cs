@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DeviceCompanionAvalonia.Models
+﻿namespace DeviceCompanion.Interfaces.Models
 {
     public class SensorData
     {

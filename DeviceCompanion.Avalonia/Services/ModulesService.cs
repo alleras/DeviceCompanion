@@ -1,27 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using DeviceCompanionAvalonia.Interfaces;
-using DeviceCompanionAvalonia.Interfaces.Services;
+using DeviceCompanion.Interfaces;
+using DeviceCompanion.Interfaces.Services;
 
-namespace DeviceCompanionAvalonia.Services
+namespace DeviceCompanion.Avalonia.Services
 {
     public class ModulesService : IModulesService
     {
-        private static ISensorModule LoadDLL(FileInfo file)
+        private static ISensorModule LoadDll(FileInfo file)
         {
-            Assembly assembly = Assembly.LoadFile(file.FullName);
+            var assembly = Assembly.LoadFile(file.FullName);
             
             var typeName = Path.GetFileNameWithoutExtension(file.Name);
-            Type? type = assembly.GetType(typeName + ".Loader") ?? 
+            var type = assembly.GetType(typeName + ".Loader") ?? 
                          throw new Exception("Type not found");
             
-            object? instance = Activator.CreateInstance(type) ??
+            var instance = Activator.CreateInstance(type) ??
                                throw new Exception("Failed to create instance");
             
-            MethodInfo? method = type.GetMethod("GetModule") ??
+            var method = type.GetMethod("GetModule") ??
                                  throw new Exception("Method not found");
             
             var module = method.Invoke(instance, null) ?? 
@@ -37,10 +38,11 @@ namespace DeviceCompanionAvalonia.Services
         
         public async Task<IEnumerable<ISensorModule>> GetInstalledModules()
         {
-            return new List<ISensorModule>(
-                [
-                ]
-            );
+            var dirInfo = new DirectoryInfo(Directory.GetCurrentDirectory() + "\\modules");
+
+            var files = dirInfo.EnumerateFiles();
+
+            return files.Select(LoadDll).ToList();
         }
     }
 }

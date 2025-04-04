@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using DeviceCompanionAvalonia.Interfaces;
-
-namespace DeviceCompanionAvalonia.Interfaces.Services
+﻿namespace DeviceCompanion.Interfaces.Services
 {
     public interface IPollingManager
     {

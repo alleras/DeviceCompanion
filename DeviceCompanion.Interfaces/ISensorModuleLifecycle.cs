@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using DeviceCompanionAvalonia.Models;
+using DeviceCompanion.Interfaces.Models;
 
 namespace DeviceCompanionAvalonia.Interfaces
 {

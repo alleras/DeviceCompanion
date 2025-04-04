@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace DeviceCompanionAvalonia.Interfaces.Services
+﻿namespace DeviceCompanion.Interfaces.Services
 {
     public interface IModulesService
     {

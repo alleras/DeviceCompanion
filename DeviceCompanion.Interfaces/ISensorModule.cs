@@ -1,7 +1,6 @@
-﻿using System;
-using DeviceCompanionAvalonia.Models;
+﻿using DeviceCompanion.Interfaces.Models;
 
-namespace DeviceCompanionAvalonia.Interfaces
+namespace DeviceCompanion.Interfaces
 {
     public class ModuleStateChangedEventArgs(SensorState previousState, SensorState currentState) : EventArgs
     {

@@ -1,14 +1,14 @@
+using System.Linq;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
-using System.Linq;
 using Avalonia.Markup.Xaml;
-using DeviceCompanionAvalonia.ViewModels;
-using DeviceCompanionAvalonia.Views;
+using DeviceCompanion.Avalonia.ViewModels;
+using DeviceCompanionAvalonia;
 using Microsoft.Extensions.DependencyInjection;
+using MainWindow = DeviceCompanion.Avalonia.Views.MainWindow;
 
-namespace DeviceCompanionAvalonia;
+namespace DeviceCompanion.Avalonia;
 
 public partial class App : Application
 {

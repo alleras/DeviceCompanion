@@ -1,16 +1,17 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="DeviceCompanionAvalonia.App"
+             x:Class="DeviceCompanion.Avalonia.App"
              xmlns:local="using:DeviceCompanionAvalonia"
              xmlns:converters="using:Avalonia.Controls.Converters"
              RequestedThemeVariant="Dark"
              xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
-             xmlns:semi="https://irihi.tech/semi">
+             xmlns:semi="https://irihi.tech/semi"
+             xmlns:avalonia="clr-namespace:DeviceCompanion.Avalonia">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
 
     <Application.DataTemplates>
-        <local:ViewLocator/>
+        <avalonia:ViewLocator/>
     </Application.DataTemplates>
              
      <Application.Resources>
